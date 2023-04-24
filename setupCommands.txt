@@ -1,0 +1,42 @@
+----------------------------------
+Setupping Conda Env 
+---------------------------------------
+conda create --name climbs python=3.6
+conda activate climbs
+pip install Flask pymongo
+
+
+------------------------------
+SetUp mongo db(ubuntu 22.02)
+-----------------------------
+curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+apt-key list
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+if ( sudo apt update ) not  works move to next SetUp else laststep
+1 echo "deb http://security.ubuntu.com/ubuntu focal-security main" | sudo tee /etc/apt/sources.list.d/focal-security.list
+2 sudo apt-get update
+3 sudo apt-get install libssl1.1
+4 sudo rm /etc/apt/sources.list.d/focal-security.list
+5 sudo apt install mongodb-org
+
+------------------------------------
+Start mongodb connection 
+-----------------------------------
+sudo systemctl start mongod.service
+sudo systemctl status mongod
+sudo systemctl enable mongod
+mongo --eval 'db.runCommand({ connectionStatus: 1 })'
+
+-----------------------------------------
+Manage Mongodb service
+----------------------------------------
+sudo systemctl status mongod
+sudo systemctl stop mongod
+sudo systemctl start mongod
+sudo systemctl restart mongod
+
+-----------------
+startup at boot
+---------------
+sudo systemctl enable mongod
+sudo systemctl disable mongod

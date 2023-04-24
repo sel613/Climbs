@@ -1,0 +1,26 @@
+list dbs                   -show dbs
+to view curret db          -db
+use particular db          -use dbname
+drop db                    -db.dropDatabase()
+collectionname refers to table name
+insert row to collection   -db.collectionname.insert({key1:'value1',key2:'value2'}) 
+insert multiple rows       -db.collectionname.insertMany([
+                            {
+                              key1: ' value1',
+                              date: Date()
+                            },
+                            {
+                              key1: 'value1',
+                              date: Date()
+                            },
+                            {
+                             key1: 'value1',
+                              date: Date()
+                            }
+                            ])
+
+
+get one random record        -db.collectionname.findOne()	
+get all record in collection -db.collectionname.find().prettyPrint()
+get only specific keys/columns value - db.users.find({}, {username:true, _id:false})
+	

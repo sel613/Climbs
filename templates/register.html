@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Student Course Details</title>
+  </head>
+  <body>
+    <h1>Enter urs</h1>
+    {% if error %}
+      <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="post" action="{{ url_for('register') }}">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username"><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="age">Age:</label>
+      <input type="age" id="age" name="age"><br><br>
+      <label for="courseChoosen">Course Choosed:</label>
+      <input type="radio" id="cse" name="courseChoosen" value="CSE" checked>
+      <label for="cse">CSE</label><br>
+      <input type="radio" id="it" name="courseChoosen" value="IT">
+      <label for="it">IT</label><br>
+      <input type="radio" id="ece" name="courseChoosen" value="ECE">
+      <label for="ece">ECE</label><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"><br><br>
+      <label for="confirm_password">Confirm Password:</label>
+      <input type="password" id="confirm_password" name="confirm_password"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
